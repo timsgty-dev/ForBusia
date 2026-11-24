@@ -1,4 +1,5 @@
 import { appConfig } from "../config/app";
+import { DishSticker } from "../components/DishSticker";
 import { hrefFor } from "../hooks/useRoute";
 import { assetUrl } from "../lib/assets";
 import type { Dish } from "../types";
@@ -24,15 +25,18 @@ export function MenuScreen({ dishes }: Props) {
               className="dish-card"
               href={hrefFor({ name: "dish", id: dish.id })}
             >
-              {dish.image ? (
-                <img
-                  className="dish-thumb"
-                  src={assetUrl(dish.image) ?? undefined}
-                  alt=""
-                />
-              ) : (
-                <div className="dish-thumb" aria-hidden="true" />
-              )}
+              <span className="dish-art">
+                {dish.image ? (
+                  <img
+                    className="dish-thumb"
+                    src={assetUrl(dish.image) ?? undefined}
+                    alt=""
+                  />
+                ) : (
+                  <span className="dish-thumb dish-thumb-placeholder" aria-hidden="true" />
+                )}
+                <DishSticker dishId={dish.id} />
+              </span>
               <strong>{dish.title}</strong>
             </a>
           ) : (

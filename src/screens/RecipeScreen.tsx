@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { appConfig } from "../config/app";
+import { DishSticker } from "../components/DishSticker";
 import { hrefFor } from "../hooks/useRoute";
 import { SoftImage } from "../components/SoftImage";
 import {
@@ -48,7 +49,10 @@ export function RecipeScreen({ dish, unlocked }: Props) {
       <h1 id="recipe-title" className="lead" style={{ marginTop: 24 }}>
         {dish.title}
       </h1>
-      <SoftImage src={dish.image} alt="" />
+      <div className="recipe-art">
+        <SoftImage src={dish.image} alt="" />
+        <DishSticker dishId={dish.id} />
+      </div>
 
       {!hasRecipe ? (
         <article className="card" style={{ marginTop: 16 }}>
