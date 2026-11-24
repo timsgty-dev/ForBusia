@@ -6,7 +6,7 @@
 export const appConfig = {
   timeZone: "Europe/Warsaw",
   /** Opens the menu from the home screen. */
-  mainUnlockAt: "2026-10-25T00:00:00",
+  mainUnlockAt: "2026-11-25T00:00:00",
   homeEyebrow: "для тебя",
   homeLead: "Что же нас ждёт?",
   startLabel: "Начать",

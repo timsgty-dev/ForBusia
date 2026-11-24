@@ -10,7 +10,7 @@ export const dishes: Dish[] = [
   {
     id: "caprese",
     title: "Капрезе с бальзамическим соусом",
-    unlockAt: null,
+    unlockAt: "2026-11-25T18:15:00",
     image: null,
     ingredients: [],
     steps: [],
@@ -18,7 +18,7 @@ export const dishes: Dish[] = [
   {
     id: "tagliatelle",
     title: "Тальятелле с креветками",
-    unlockAt: null,
+    unlockAt: "2026-11-25T18:15:00",
     image: null,
     ingredients: [],
     steps: [],
@@ -26,7 +26,7 @@ export const dishes: Dish[] = [
   {
     id: "tiramisu",
     title: "Тирамису",
-    unlockAt: null,
+    unlockAt: "2026-11-25T17:00:00",
     image: null,
     ingredients: [],
     steps: [],
@@ -34,7 +34,7 @@ export const dishes: Dish[] = [
   {
     id: "lemonade",
     title: "Клубничный лимонад",
-    unlockAt: null,
+    unlockAt: "2026-11-25T18:00:00",
     image: null,
     ingredients: [],
     steps: [],
