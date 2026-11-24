@@ -1,11 +1,9 @@
 import { appConfig } from "../config/app";
 import { hrefFor } from "../hooks/useRoute";
 import type { ScheduledAction } from "../types";
-import { wallStringToUtcMs } from "../time/warsaw";
 
 type Props = {
   action: ScheduledAction | null;
-  nextAction: ScheduledAction | null;
   scheduleReady: boolean;
   isDemo: boolean;
 };
@@ -18,30 +16,8 @@ const illustrations: Record<string, string> = {
   waiting: "🎀",
 };
 
-function formatSchedulePoint(value: string): string {
-  return new Intl.DateTimeFormat("ru-RU", {
-    timeZone: appConfig.timeZone,
-    day: "numeric",
-    month: "long",
-    hour: "2-digit",
-    minute: "2-digit",
-  }).format(wallStringToUtcMs(value, appConfig.timeZone));
-}
-
-function formatPeriod(
-  action: ScheduledAction,
-  nextAction: ScheduledAction | null,
-): string {
-  if (!action.startsAt) return "";
-  const start = formatSchedulePoint(action.startsAt);
-  if (!nextAction?.startsAt) return `${start} · дальше`;
-  const end = formatSchedulePoint(nextAction.startsAt);
-  return `${start} — ${end}`;
-}
-
 export function ActionsScreen({
   action,
-  nextAction,
   scheduleReady,
   isDemo,
 }: Props) {
@@ -69,7 +45,6 @@ export function ActionsScreen({
           </div>
           <h2 className="actions-title">{action.title}</h2>
           <p className="actions-description">{action.description}</p>
-          <p className="actions-period">{formatPeriod(action, nextAction)}</p>
         </article>
       )}
       <p className="actions-note">А потом Муся снова появится 💗</p>
