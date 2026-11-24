@@ -83,6 +83,9 @@ export default function App() {
   const currentAction = scheduleReady
     ? getCurrentScheduledItem(schedule, nowMs, appConfig.timeZone)
     : null;
+  const nextAction = currentAction
+    ? schedule[schedule.indexOf(currentAction) + 1] ?? null
+    : null;
 
   useEffect(() => {
     if (route.name === "menu" && !mainOpen) {
@@ -102,6 +105,7 @@ export default function App() {
     screen = (
       <ActionsScreen
         action={currentAction}
+        nextAction={nextAction}
         scheduleReady={scheduleReady}
         isDemo={usingDemo}
       />

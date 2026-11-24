@@ -1,45 +1,43 @@
 import type { ScheduledAction } from "../types";
 
 /**
- * Current-action cards, in order.
- * startsAt stays null until the owner provides real Warsaw times.
- * The UI must not treat this list as a live schedule until at least
- * one startsAt is filled.
+ * Cat status timeline, using Warsaw local time. Entries stay in order and the
+ * last started entry remains active until another scheduled entry begins.
  */
 export const actionSchedule: ScheduledAction[] = [
   {
-    id: "zip-zip",
-    title: "zip-zip",
-    description: "",
+    id: "sleep",
+    title: "Котик спит",
+    description: "Сладких снов — пусть котик набирается сил.",
     image: null,
-    startsAt: null,
+    startsAt: "2026-11-24T08:00:00",
   },
   {
     id: "study",
-    title: "учиться",
-    description: "",
+    title: "Котик учится",
+    description: "Котик занят учёбой и скоро вернётся.",
     image: null,
-    startsAt: null,
+    startsAt: "2026-11-25T06:00:00",
   },
   {
     id: "shop",
-    title: "в магазине",
-    description: "",
+    title: "Котик в магазине",
+    description: "Котик выбирает всё нужное для вечера.",
     image: null,
-    startsAt: null,
+    startsAt: "2026-11-25T14:00:00",
   },
   {
     id: "prepare",
-    title: "готовиться",
-    description: "",
+    title: "Котик готовится",
+    description: "Котик готовит для тебя кое-что особенное.",
     image: null,
-    startsAt: null,
+    startsAt: "2026-11-25T15:00:00",
   },
   {
-    id: "waiting-schedule",
-    title: "ждет расписание позже",
-    description: "",
+    id: "waiting",
+    title: "Котик ждёт",
+    description: "Котик уже ждёт встречи с тобой 💗",
     image: null,
-    startsAt: null,
+    startsAt: "2026-11-25T18:00:00",
   },
 ];
