@@ -45,7 +45,7 @@ export const dishes: Dish[] = [
     id: "tagliatelle",
     title: "Тальятелле с креветками",
     servingsLabel: "На 2 порции",
-    unlockAt: "2026-11-25T18:15:00",
+    unlockAt: "2026-11-25T18:30:00",
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Pier_33_restaurant_Prawn_%26_Crab_Tagliatelle%2C_Mooloolaba_Queensland.jpg/1280px-Pier_33_restaurant_Prawn_%26_Crab_Tagliatelle%2C_Mooloolaba_Queensland.jpg",
     imageCredit: "Kgbo / Wikimedia Commons",
     imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Pier_33_restaurant_Prawn_%26_Crab_Tagliatelle,_Mooloolaba_Queensland.jpg",
