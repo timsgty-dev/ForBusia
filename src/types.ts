@@ -15,8 +15,14 @@ export type RecipeStep = {
 export type Dish = {
   id: string;
   title: string;
+  servingsLabel: string;
   unlockAt: WallDateTime | null;
   image: string | null;
+  imageCredit: string;
+  imageCreditUrl: string;
+  imageLicense: string;
+  recipeSourceLabel: string;
+  recipeSourceUrl: string;
   ingredients: Ingredient[];
   steps: RecipeStep[];
 };

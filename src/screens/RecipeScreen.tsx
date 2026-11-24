@@ -17,11 +17,12 @@ type Props = {
 export function RecipeScreen({ dish, unlocked }: Props) {
   const hasRecipe = dish.ingredients.length > 0 || dish.steps.length > 0;
   const [stepIndex, setStepIndex] = useState(0);
+  const [started, setStarted] = useState(false);
   const [checked, setChecked] = useState(() =>
     getCheckedIngredientIds(dish.id),
   );
 
-  const currentStep = dish.steps[stepIndex];
+  const currentStep = started ? dish.steps[stepIndex] : undefined;
   const isLast = stepIndex >= dish.steps.length - 1;
   const checkedSet = useMemo(() => new Set(checked), [checked]);
 
@@ -49,10 +50,15 @@ export function RecipeScreen({ dish, unlocked }: Props) {
       <h1 id="recipe-title" className="lead" style={{ marginTop: 24 }}>
         {dish.title}
       </h1>
+      <p className="recipe-yield">{dish.servingsLabel}</p>
       <div className="recipe-art">
-        <SoftImage src={dish.image} alt="" />
+        <SoftImage src={dish.image} alt={dish.title} />
         <DishSticker dishId={dish.id} />
       </div>
+      <p className="photo-credit">
+        Фото: <a href={dish.imageCreditUrl} target="_blank" rel="noreferrer">{dish.imageCredit}</a>
+        {" · "}{dish.imageLicense}
+      </p>
 
       {!hasRecipe ? (
         <article className="card" style={{ marginTop: 16 }}>
@@ -87,6 +93,16 @@ export function RecipeScreen({ dish, unlocked }: Props) {
             </ul>
           ) : null}
 
+          {!started ? (
+            <button
+              className="step-btn start-recipe-btn"
+              type="button"
+              onClick={() => setStarted(true)}
+            >
+              Начать
+            </button>
+          ) : null}
+
           {currentStep ? (
             <article className="card steps">
               <p className="muted">
@@ -107,6 +123,12 @@ export function RecipeScreen({ dish, unlocked }: Props) {
               )}
             </article>
           ) : null}
+          <p className="recipe-credit">
+            Рецепт адаптирован по{" "}
+            <a href={dish.recipeSourceUrl} target="_blank" rel="noreferrer">
+              {dish.recipeSourceLabel}
+            </a>
+          </p>
         </>
       )}
     </section>
