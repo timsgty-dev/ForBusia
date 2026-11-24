@@ -1,4 +1,5 @@
 import { appConfig } from "../config/app";
+import { busiSection } from "../config/busi";
 import { DishSticker } from "../components/DishSticker";
 import { hrefFor } from "../hooks/useRoute";
 import { assetUrl } from "../lib/assets";
@@ -6,9 +7,10 @@ import type { Dish } from "../types";
 
 type Props = {
   dishes: Array<{ dish: Dish; unlocked: boolean }>;
+  busiUnlocked: boolean;
 };
 
-export function MenuScreen({ dishes }: Props) {
+export function MenuScreen({ dishes, busiUnlocked }: Props) {
   return (
     <section className="screen" aria-labelledby="menu-title">
       <a className="back" href={hrefFor({ name: "home" })}>
@@ -53,6 +55,17 @@ export function MenuScreen({ dishes }: Props) {
               <span>{appConfig.lockedDishLabel}</span>
             </button>
           ),
+        )}
+        {busiUnlocked ? (
+          <a className="dish-card busi-card" href={hrefFor({ name: "busi" })}>
+            <span className="busi-mark" aria-hidden="true">🐾</span>
+            <strong>{busiSection.title}</strong>
+          </a>
+        ) : (
+          <button className="dish-card busi-card" type="button" disabled>
+            <span className="lock" aria-hidden="true">🔒</span>
+            <strong>{busiSection.title}</strong>
+          </button>
         )}
       </div>
     </section>

@@ -246,6 +246,29 @@ h2 {
   background: #fffafb;
 }
 
+.busi-card {
+  grid-column: 1 / -1;
+  min-height: 92px;
+  flex-direction: row;
+  gap: 16px;
+  background: linear-gradient(120deg, #fff, #fff0f5 55%, #f3eaff);
+}
+
+.busi-card:disabled {
+  opacity: 1;
+  background: linear-gradient(120deg, #fff, #fff0f5 55%, #f3eaff);
+}
+
+.busi-mark {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: #fff;
+  font-size: 1.6rem;
+}
+
 .lock {
   width: 48px;
   height: 48px;
@@ -478,4 +501,84 @@ h2 {
   text-align: center;
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.busi-screen {
+  justify-content: flex-start;
+}
+
+.busi-eyebrow {
+  margin: auto 0 8px;
+  color: var(--muted);
+  text-align: center;
+  letter-spacing: 0.18em;
+}
+
+.busi-title {
+  margin: 0 0 18px;
+}
+
+.busi-center {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+}
+
+.busi-upgrade-btn {
+  width: min(270px, 86%);
+  min-height: 84px;
+  border: 0;
+  border-radius: 32px;
+  background: linear-gradient(180deg, #ffb3c9, var(--pink-deep));
+  box-shadow: var(--shadow);
+  color: white;
+  font-family: Fredoka, Nunito, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+
+.busi-message {
+  margin: auto 0 14px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.busi-days-title {
+  margin: 24px 0 18px;
+}
+
+.busi-days-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 8px;
+}
+
+.busi-day-button {
+  width: 100%;
+  min-height: 58px;
+  border: 1px solid rgba(255, 255, 255, 0.94);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 8px 20px rgba(91, 58, 78, 0.08);
+  color: var(--muted);
+  font-family: Fredoka, Nunito, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: default;
+}
+
+.busi-day-button.is-unlocked {
+  background: linear-gradient(110deg, #fff, #ffeaf1);
+  color: var(--ink);
+}
+
+.busi-day-button:disabled {
+  opacity: 1;
 }

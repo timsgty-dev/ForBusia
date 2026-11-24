@@ -2,12 +2,15 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { PreviewBar } from "./components/PreviewBar";
 import { actionSchedule } from "./config/actions";
 import { appConfig } from "./config/app";
+import { busiSection } from "./config/busi";
 import { dishes } from "./config/dishes";
 import { useNow } from "./hooks/useNow";
 import { navigate, useRoute } from "./hooks/useRoute";
 import { previewDemoSchedule } from "./preview/demoSchedule";
 import { readPreviewFromLocation, resolveNowMs } from "./preview/preview";
 import { ActionsScreen } from "./screens/ActionsScreen";
+import { BusiDaysScreen } from "./screens/BusiDaysScreen";
+import { BusiScreen } from "./screens/BusiScreen";
 import { HomeScreen } from "./screens/HomeScreen";
 import { MenuScreen } from "./screens/MenuScreen";
 import { RecipeScreen } from "./screens/RecipeScreen";
@@ -57,6 +60,10 @@ export default function App() {
     return isMomentReached(nowMs, appConfig.mainUnlockAt, appConfig.timeZone);
   }, [nowMs, preview]);
 
+  const busiUnlocked =
+    busiSection.enabled &&
+    isMomentReached(nowMs, busiSection.unlockAt, appConfig.timeZone);
+
   const countdown = formatHms(
     remainingMs(nowMs, appConfig.mainUnlockAt, appConfig.timeZone),
   );
@@ -94,7 +101,10 @@ export default function App() {
         navigate({ name: "home" });
       }
     }
-  }, [route, mainOpen, dishStates]);
+    if ((route.name === "busi" || route.name === "busiDays") && !busiUnlocked) {
+      navigate({ name: mainOpen ? "menu" : "home" });
+    }
+  }, [route, mainOpen, dishStates, busiUnlocked]);
 
   let screen = <HomeScreen isOpen={mainOpen} countdown={countdown} />;
 
@@ -107,7 +117,11 @@ export default function App() {
       />
     );
   } else if (route.name === "menu" && mainOpen) {
-    screen = <MenuScreen dishes={dishStates} />;
+    screen = <MenuScreen dishes={dishStates} busiUnlocked={busiUnlocked} />;
+  } else if (route.name === "busi" && busiUnlocked) {
+    screen = <BusiScreen />;
+  } else if (route.name === "busiDays" && busiUnlocked) {
+    screen = <BusiDaysScreen nowMs={nowMs} />;
   } else if (route.name === "dish") {
     const found = dishStates.find((item) => item.dish.id === route.id);
     if (found && mainOpen) {
