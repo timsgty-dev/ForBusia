@@ -462,6 +462,27 @@ h2 {
   font-size: clamp(1.8rem, 8vw, 2.3rem);
 }
 
+.survey-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 18px;
+  padding: 12px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 8px 20px rgba(36, 69, 101, 0.08);
+  color: var(--ink);
+}
+
+.survey-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
 .actions-card {
   display: flex;
   flex-direction: column;

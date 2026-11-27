@@ -30,6 +30,10 @@ export function ActionsScreen({
       <h1 id="now-title" className="lead actions-heading">
         А где Муся?
       </h1>
+      <div className="survey-status" role="status">
+        <span className="survey-icon" aria-hidden="true">📝</span>
+        <strong>Идёт анкетирование</strong>
+      </div>
       {!scheduleReady || !action ? (
         <article className="card actions-card">
           <div className="actions-art" aria-hidden="true">
