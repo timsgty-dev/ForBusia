@@ -1,12 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { PreviewBar } from "./components/PreviewBar";
-import { actionSchedule } from "./config/actions";
 import { appConfig } from "./config/app";
 import { busiSection } from "./config/busi";
 import { dishes } from "./config/dishes";
 import { useNow } from "./hooks/useNow";
 import { navigate, useRoute } from "./hooks/useRoute";
-import { previewDemoSchedule } from "./preview/demoSchedule";
 import { readPreviewFromLocation, resolveNowMs } from "./preview/preview";
 import { ActionsScreen } from "./screens/ActionsScreen";
 import { BusiDaysScreen } from "./screens/BusiDaysScreen";
@@ -16,9 +14,7 @@ import { MenuScreen } from "./screens/MenuScreen";
 import { RecipeScreen } from "./screens/RecipeScreen";
 import {
   formatHms,
-  getCurrentScheduledItem,
   isMomentReached,
-  isScheduleConfigured,
   remainingMs,
 } from "./time/unlock";
 import { wallStringToUtcMs } from "./time/warsaw";
@@ -83,14 +79,6 @@ export default function App() {
     [nowMs, preview],
   );
 
-  const liveScheduleReady = isScheduleConfigured(actionSchedule);
-  const usingDemo = preview.enabled && preview.demoSchedule;
-  const schedule = usingDemo ? previewDemoSchedule : actionSchedule;
-  const scheduleReady = usingDemo || liveScheduleReady;
-  const currentAction = scheduleReady
-    ? getCurrentScheduledItem(schedule, nowMs, appConfig.timeZone)
-    : null;
-
   useEffect(() => {
     if (route.name === "menu" && !mainOpen) {
       navigate({ name: "home" });
@@ -109,13 +97,7 @@ export default function App() {
   let screen = <HomeScreen isOpen={mainOpen} countdown={countdown} />;
 
   if (route.name === "now") {
-    screen = (
-      <ActionsScreen
-        action={currentAction}
-        scheduleReady={scheduleReady}
-        isDemo={usingDemo}
-      />
-    );
+    screen = <ActionsScreen />;
   } else if (route.name === "menu" && mainOpen) {
     screen = <MenuScreen dishes={dishStates} busiUnlocked={busiUnlocked} />;
   } else if (route.name === "busi" && busiUnlocked) {

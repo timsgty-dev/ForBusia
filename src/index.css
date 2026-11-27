@@ -449,8 +449,18 @@ h2 {
   justify-content: flex-start;
 }
 
+.survey-hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px 4px 24px;
+}
+
 .actions-eyebrow {
-  margin: auto 0 8px;
+  margin: 0 0 12px;
   color: var(--muted);
   text-align: center;
   letter-spacing: 0.16em;
@@ -458,70 +468,31 @@ h2 {
 }
 
 .actions-heading {
-  margin: 0 0 24px;
-  font-size: clamp(1.8rem, 8vw, 2.3rem);
+  max-width: 340px;
+  margin: 0;
+  font-size: clamp(2rem, 9vw, 2.7rem);
 }
 
-.survey-status {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: fit-content;
-  max-width: 100%;
-  margin: 0 auto 18px;
-  padding: 12px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: 0 8px 20px rgba(36, 69, 101, 0.08);
-  color: var(--ink);
-}
-
-.survey-icon {
-  font-size: 1.5rem;
-  line-height: 1;
-}
-
-.actions-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 26px 20px 22px;
-  background: rgba(255, 255, 255, 0.78);
-  border-color: rgba(255, 255, 255, 0.92);
-}
-
-.actions-art {
-  width: min(230px, 72vw);
+.survey-art {
+  width: min(290px, 78vw);
   aspect-ratio: 1;
   display: grid;
   place-items: center;
-  margin: 2px auto 20px;
+  margin: 8px auto 28px;
   border-radius: 48% 52% 56% 44% / 48% 46% 54% 52%;
   background:
     radial-gradient(circle at 32% 25%, #fff 0 8%, transparent 30%),
     linear-gradient(145deg, #e5f4ff, #d9eaff 58%, #d4f2ff);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8), var(--shadow);
-  font-size: clamp(5rem, 30vw, 8rem);
+  font-size: clamp(7rem, 38vw, 10rem);
   line-height: 1;
 }
 
-.actions-title {
-  font-size: 1.55rem;
-}
-
-.actions-description {
-  margin: 8px 0 0;
-  line-height: 1.5;
-}
-
-.actions-note {
-  margin: auto 0 12px;
-  text-align: center;
+.survey-description {
+  margin: 12px 0 0;
   color: var(--muted);
-  font-size: 0.9rem;
+  line-height: 1.5;
+  font-size: 1.05rem;
 }
 
 .busi-screen {
