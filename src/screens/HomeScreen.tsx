@@ -1,5 +1,6 @@
 import { appConfig } from "../config/app";
-import { hrefFor } from "../hooks/useRoute";
+import { busiSection } from "../config/busi";
+import { hrefFor, navigate } from "../hooks/useRoute";
 
 type Props = {
   isOpen: boolean;
@@ -16,21 +17,31 @@ export function HomeScreen({ isOpen, countdown }: Props) {
         <h1 id="home-lead" className="lead">
           {appConfig.homeLead}
         </h1>
-        {isOpen ? (
-          <a className="countdown-btn" href={hrefFor({ name: "menu" })}>
-            <small>{appConfig.alreadyOpenLabel}</small>
-            <strong>{appConfig.startLabel}</strong>
-          </a>
-        ) : (
-          <button className="countdown-btn" type="button" disabled>
-            <small>
-              {countdown === "00:00:00" ? "Ещё закрыто" : "Откроется через"}
-            </small>
-            <strong aria-live="polite">
-              {countdown === "00:00:00" ? "—" : countdown}
-            </strong>
+        <button className="countdown-btn" type="button" disabled>
+          <small>
+            {isOpen
+              ? appConfig.alreadyOpenLabel
+              : countdown === "00:00:00"
+                ? "Ещё закрыто"
+                : "Откроется через"}
+          </small>
+          <strong aria-live="polite">
+            {isOpen
+              ? appConfig.startLabel
+              : countdown === "00:00:00"
+                ? "—"
+                : countdown}
+          </strong>
+        </button>
+        {busiSection.enabled ? (
+          <button
+            className="busi-upgrade-btn home-upgrade-btn"
+            type="button"
+            onClick={() => navigate({ name: "busiDays" })}
+          >
+            {busiSection.upgradeLabel}
           </button>
-        )}
+        ) : null}
       </div>
       <div className="peek-row">
         <a

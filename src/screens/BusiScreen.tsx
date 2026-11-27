@@ -1,5 +1,5 @@
 import { busiSection } from "../config/busi";
-import { hrefFor, navigate } from "../hooks/useRoute";
+import { hrefFor } from "../hooks/useRoute";
 
 export function BusiScreen() {
   return (
@@ -11,15 +11,6 @@ export function BusiScreen() {
       <h1 id="busi-title" className="lead busi-title">
         {busiSection.title}
       </h1>
-      <div className="busi-center">
-        <button
-          className="busi-upgrade-btn"
-          type="button"
-          onClick={() => navigate({ name: "busiDays" })}
-        >
-          {busiSection.upgradeLabel}
-        </button>
-      </div>
       <p className="busi-message">{busiSection.introMessage}</p>
     </section>
   );

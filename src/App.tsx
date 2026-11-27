@@ -135,7 +135,7 @@ export default function App() {
         ☁️
       </span>
       <span className="decor decor-heart" aria-hidden="true">
-        💗
+        💙
       </span>
       <PreviewBar preview={preview} />
       {screen}

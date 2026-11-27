@@ -1,15 +1,15 @@
 :root {
-  --cream: #fff6f4;
-  --blush: #ffe4ec;
-  --pink: #ff8fb3;
-  --pink-deep: #f56b9a;
-  --ink: #5b3a4e;
-  --muted: #8d6478;
-  --lavender: #d9c7f2;
-  --mint: #bfe8dc;
-  --peach: #ffd7c2;
+  --cream: #f3f9ff;
+  --blush: #e5f2ff;
+  --pink: #91c9f5;
+  --pink-deep: #559edb;
+  --ink: #244565;
+  --muted: #587a9c;
+  --lavender: #d9eaff;
+  --mint: #c9edfa;
+  --peach: #d5efff;
   --white: rgba(255, 255, 255, 0.88);
-  --shadow: 0 16px 36px rgba(245, 107, 154, 0.16);
+  --shadow: 0 16px 36px rgba(65, 137, 198, 0.16);
   --radius: 28px;
   --tap: 48px;
   --safe-top: env(safe-area-inset-top, 0px);
@@ -50,7 +50,7 @@ a {
 
 button:focus-visible,
 a:focus-visible {
-  outline: 3px solid #7a4dff;
+  outline: 3px solid #367cb8;
   outline-offset: 3px;
 }
 
@@ -133,7 +133,7 @@ h2 {
   min-height: 168px;
   border: 0;
   border-radius: 36px;
-  background: linear-gradient(180deg, #ffb3c9, var(--pink-deep));
+  background: linear-gradient(180deg, #a9dcff, var(--pink-deep));
   color: white;
   box-shadow: var(--shadow);
   cursor: pointer;
@@ -243,7 +243,7 @@ h2 {
 
 .dish-card:disabled {
   cursor: default;
-  background: #fffafb;
+  background: #f5faff;
 }
 
 .busi-card {
@@ -251,12 +251,12 @@ h2 {
   min-height: 92px;
   flex-direction: row;
   gap: 16px;
-  background: linear-gradient(120deg, #fff, #fff0f5 55%, #f3eaff);
+  background: linear-gradient(120deg, #fff, #eaf6ff 55%, #e8f0ff);
 }
 
 .busi-card:disabled {
   opacity: 1;
-  background: linear-gradient(120deg, #fff, #fff0f5 55%, #f3eaff);
+  background: linear-gradient(120deg, #fff, #eaf6ff 55%, #e8f0ff);
 }
 
 .busi-mark {
@@ -273,7 +273,7 @@ h2 {
   width: 48px;
   height: 48px;
   border-radius: 16px;
-  border: 2px solid #ead7e0;
+  border: 2px solid #d3e4f2;
   display: grid;
   place-items: center;
   font-size: 1.3rem;
@@ -297,7 +297,7 @@ h2 {
 .dish-thumb-placeholder {
   background:
     radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.95) 0 8%, transparent 32%),
-    linear-gradient(145deg, #fff2d9, #ffe4ec 54%, #d9f4eb);
+    linear-gradient(145deg, #f2faff, #dcefff 54%, #d7f3ff);
 }
 
 .dish-sticker {
@@ -311,8 +311,8 @@ h2 {
   place-items: center;
   border: 2px solid rgba(255, 255, 255, 0.95);
   border-radius: 50%;
-  background: linear-gradient(145deg, #fff, #ffe4ec);
-  box-shadow: 0 5px 14px rgba(91, 58, 78, 0.16);
+  background: linear-gradient(145deg, #fff, #e5f2ff);
+  box-shadow: 0 5px 14px rgba(36, 69, 101, 0.16);
   font-size: 1.45rem;
   line-height: 1;
 }
@@ -340,7 +340,7 @@ h2 {
   position: sticky;
   top: 0;
   z-index: 5;
-  background: #5b3a4e;
+  background: #315c83;
   color: white;
   border-radius: 16px;
   padding: 10px;
@@ -377,7 +377,7 @@ h2 {
   min-height: var(--tap);
   border: 0;
   border-radius: 999px;
-  background: linear-gradient(180deg, #ffb3c9, var(--pink-deep));
+  background: linear-gradient(180deg, #a9dcff, var(--pink-deep));
   color: white;
   font-weight: 800;
   cursor: pointer;
@@ -481,7 +481,7 @@ h2 {
   border-radius: 48% 52% 56% 44% / 48% 46% 54% 52%;
   background:
     radial-gradient(circle at 32% 25%, #fff 0 8%, transparent 30%),
-    linear-gradient(145deg, #fff0f5, #eadcff 58%, #d9f4eb);
+    linear-gradient(145deg, #e5f4ff, #d9eaff 58%, #d4f2ff);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8), var(--shadow);
   font-size: clamp(5rem, 30vw, 8rem);
   line-height: 1;
@@ -518,19 +518,12 @@ h2 {
   margin: 0 0 18px;
 }
 
-.busi-center {
-  flex: 1;
-  display: grid;
-  place-items: center;
-  min-height: 220px;
-}
-
 .busi-upgrade-btn {
   width: min(270px, 86%);
   min-height: 84px;
   border: 0;
   border-radius: 32px;
-  background: linear-gradient(180deg, #ffb3c9, var(--pink-deep));
+  background: linear-gradient(180deg, #a9dcff, var(--pink-deep));
   box-shadow: var(--shadow);
   color: white;
   font-family: Fredoka, Nunito, sans-serif;
@@ -538,6 +531,13 @@ h2 {
   font-weight: 700;
   letter-spacing: 0.02em;
   cursor: pointer;
+}
+
+.home-upgrade-btn {
+  width: min(230px, 86%);
+  min-height: 64px;
+  margin-top: 18px;
+  font-size: 1.45rem;
 }
 
 .busi-message {
@@ -565,7 +565,7 @@ h2 {
   border: 1px solid rgba(255, 255, 255, 0.94);
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 8px 20px rgba(91, 58, 78, 0.08);
+  box-shadow: 0 8px 20px rgba(36, 69, 101, 0.08);
   color: var(--muted);
   font-family: Fredoka, Nunito, sans-serif;
   font-size: 1.15rem;
@@ -575,7 +575,7 @@ h2 {
 }
 
 .busi-day-button.is-unlocked {
-  background: linear-gradient(110deg, #fff, #ffeaf1);
+  background: linear-gradient(110deg, #fff, #e8f5ff);
   color: var(--ink);
 }
 
